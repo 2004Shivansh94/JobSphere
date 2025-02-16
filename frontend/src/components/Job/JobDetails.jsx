@@ -33,7 +33,7 @@ const JobDetails = () => {
         <h3>Job Details</h3>
         <div className="banner">
           <p>
-            Title: <span> {job.title}</span>
+            Company: <span> {job.title}</span>
           </p>
           <p>
             Category: <span>{job.category}</span>

@@ -3,6 +3,12 @@ import ErrorHandler from "../middlewares/error.js";
 import { Application } from "../models/applicationSchema.js";
 import { Job } from "../models/jobSchema.js";
 import cloudinary from "cloudinary";
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 
 /** -------------------------------
  * ✅ POST APPLICATION (Job Seeker)
@@ -41,7 +47,10 @@ export const postApplication = catchAsyncErrors(async (req, res, next) => {
   // ✅ 5. Upload Resume to Cloudinary
   try {
     console.log("🟡 Uploading Resume to Cloudinary...");
-    const cloudinaryResponse = await cloudinary.uploader.upload(resume.tempFilePath);
+    const cloudinaryResponse = await cloudinary.uploader.upload(resume.tempFilePath, {
+      folder: "job_applications",
+    });
+    
     
     if (!cloudinaryResponse || cloudinaryResponse.error) {
       console.error("🔴 ERROR: Cloudinary Upload Failed:", cloudinaryResponse.error);
