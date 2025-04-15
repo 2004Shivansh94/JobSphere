@@ -28,6 +28,7 @@ const App = () => {
             withCredentials: true,
           }
         );
+        
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (error) {
@@ -59,5 +60,8 @@ const App = () => {
     </>
   );
 };
+console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+
+
 
 export default App;
