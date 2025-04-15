@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://jobsphere-snowy.vercel.app',
+    origin: "https://jobsphere-ap6bw0rim-2004shivansh94s-projects.vercel.app",
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
