@@ -9,7 +9,7 @@ const Jobs = () => {
   const navigateTo = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/job/getall", {
+      .get("https://jobsphere-backend-z3jf.onrender.com/api/v1/job/getall", {
         withCredentials: true,
       })
       .then((res) => {
