@@ -23,11 +23,10 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/getuser",
-          {
-            withCredentials: true,
-          }
+          `${import.meta.env.VITE_API_URL}/api/v1/user/getuser`,
+          { withCredentials: true }
         );
+        
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (error) {
@@ -59,5 +58,8 @@ const App = () => {
     </>
   );
 };
+console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+
+
 
 export default App;
